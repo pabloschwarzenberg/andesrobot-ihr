@@ -22,7 +22,10 @@ public:
 
   static PortsList providedPorts()
   {
-    return { InputPort<std::string>("object") };
+    return { 
+	    InputPort<std::string>("object"),
+   	    InputPort<int>("cardinality") 
+    };
   }
 
   bool setGoal(RosActionNode::Goal& goal) override;

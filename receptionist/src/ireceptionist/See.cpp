@@ -6,7 +6,9 @@ using namespace BT;
 
 bool See::setGoal(RosActionNode::Goal& goal)
 {
-  getInput("number", goal.number);
+  std::string object;
+  getInput("cardinality", goal.number);
+  getInput("object", object);
   return true;
 }
 
