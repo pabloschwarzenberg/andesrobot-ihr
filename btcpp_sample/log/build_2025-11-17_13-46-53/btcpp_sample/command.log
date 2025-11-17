@@ -1,2 +1,0 @@
-Invoking command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample': /usr/bin/cmake /home/milo/Documents/andesrobot-nlp/btcpp_sample -DCMAKE_INSTALL_PREFIX=/home/milo/Documents/andesrobot-nlp/btcpp_sample/install/btcpp_sample
-Invoked command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample' returned '1': /usr/bin/cmake /home/milo/Documents/andesrobot-nlp/btcpp_sample -DCMAKE_INSTALL_PREFIX=/home/milo/Documents/andesrobot-nlp/btcpp_sample/install/btcpp_sample

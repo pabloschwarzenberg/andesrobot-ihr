@@ -1,6 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.001332] (btcpp_sample) JobQueued: {'identifier': 'btcpp_sample', 'dependencies': OrderedDict([('btcpp_sample', '/home/milo/Documents/andesrobot-nlp/btcpp_sample/install/btcpp_sample')])}
-[0.001678] (btcpp_sample) JobStarted: {'identifier': 'btcpp_sample'}
-[0.099495] (-) TimerEvent: {}
-[0.148767] (btcpp_sample) JobEnded: {'identifier': 'btcpp_sample', 'rc': 0}
-[0.150776] (-) EventReactorShutdown: {}

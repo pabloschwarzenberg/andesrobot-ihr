@@ -1,2 +1,0 @@
-Invoking command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample -- -j6 -l6
-Invoked command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample -- -j6 -l6

@@ -1,6 +1,0 @@
-/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample/CMakeFiles/btcpp_sample.dir
-/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample/CMakeFiles/uninstall.dir
-/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample/CMakeFiles/btcpp_sample_uninstall.dir
-/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample/CMakeFiles/test.dir
-/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample/CMakeFiles/edit_cache.dir
-/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample/CMakeFiles/rebuild_cache.dir
