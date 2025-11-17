@@ -1,0 +1,24 @@
+[0.019s] Invoking command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample': /usr/bin/cmake /home/milo/Documents/andesrobot-nlp/btcpp_sample -DCMAKE_INSTALL_PREFIX=/home/milo/Documents/andesrobot-nlp/btcpp_sample/install/btcpp_sample
+[0.170s] -- The CXX compiler identification is GNU 11.4.0
+[0.194s] -- Detecting CXX compiler ABI info
+[0.401s] -- Detecting CXX compiler ABI info - done
+[0.428s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.429s] -- Detecting CXX compile features
+[0.431s] -- Detecting CXX compile features - done
+[0.803s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.038s] -- Configuring done
+[1.042s] [31mCMake Error at CMakeLists.txt:8 (add_executable):
+[1.042s]   Cannot find source file:
+[1.043s] 
+[1.043s]     main.cpp
+[1.043s] 
+[1.043s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+[1.044s]   .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+[1.044s] 
+[1.044s] [0m
+[1.044s] [31mCMake Error at CMakeLists.txt:8 (add_executable):
+[1.044s]   No SOURCES given to target: btcpp_sample
+[1.045s] 
+[1.045s] [0m
+[1.045s] [0mCMake Generate step failed.  Build files cannot be regenerated correctly.[0m
+[1.064s] Invoked command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample' returned '1': /usr/bin/cmake /home/milo/Documents/andesrobot-nlp/btcpp_sample -DCMAKE_INSTALL_PREFIX=/home/milo/Documents/andesrobot-nlp/btcpp_sample/install/btcpp_sample

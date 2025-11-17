@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BehaviorTree">
+    <!-- ////////// -->
+    <BehaviorTree ID="BehaviorTree">
+        <Sequence>
+            <Action ID="MoveTo" location="DoorLocation"/>
+            <Action ID="See" object="Person"/>
+            <Action ID="Greet" speech="Hello"/>
+            <Action ID="Ask" speech="What is your name?"/>
+            <Action ID="Remember" object="Person"/>
+        </Sequence>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="Ask">
+            <input_port default="What is your name?" name="speech"/>
+        </Action>
+        <Action ID="Greet">
+            <input_port default="Hello" name="speech"/>
+        </Action>
+        <Action ID="MoveTo">
+            <input_port default="DoorLocation" name="location"/>
+        </Action>
+        <Action ID="Remember">
+            <input_port default="Person" name="object"/>
+        </Action>
+        <Action ID="See">
+            <input_port default="Person" name="object"/>
+        </Action>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>

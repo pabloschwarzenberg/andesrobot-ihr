@@ -1,0 +1,6 @@
+[0.023s] Invoking command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample -- -j6 -l6
+[0.111s] [35m[1mConsolidate compiler generated dependencies of target btcpp_sample[0m
+[0.142s] [ 50%] [32mBuilding CXX object CMakeFiles/btcpp_sample.dir/main.cpp.o[0m
+[3.438s] [100%] [32m[1mLinking CXX executable btcpp_sample[0m
+[3.722s] [100%] Built target btcpp_sample
+[3.750s] Invoked command in '/home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/milo/Documents/andesrobot-nlp/btcpp_sample/build/btcpp_sample -- -j6 -l6

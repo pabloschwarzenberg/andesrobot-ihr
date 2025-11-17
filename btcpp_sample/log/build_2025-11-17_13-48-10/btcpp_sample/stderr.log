@@ -1,0 +1,7 @@
+[01m[K/home/milo/Documents/andesrobot-nlp/btcpp_sample/main.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Kbehaviortree_cpp/bt_factory.h: No such file or directory
+    1 | #include [01;31m[K"behaviortree_cpp/bt_factory.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/btcpp_sample.dir/build.make:76: CMakeFiles/btcpp_sample.dir/main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:85: CMakeFiles/btcpp_sample.dir/all] Error 2
+gmake: *** [Makefile:101: all] Error 2
