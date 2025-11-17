@@ -1,0 +1,5 @@
+string speech
+---
+string[] status
+---
+string[] progress
