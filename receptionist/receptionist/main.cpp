@@ -55,8 +55,8 @@ int main()
     // We use the BehaviorTreeFactory to register our custom nodes
   BehaviorTreeFactory factory;
 
-  // The recommended way to create a Node is through inheritance.
-  factory.registerNodeType<ApproachObject>("ApproachObject");
+  //factory.registerNodeType<Greet>("Greet");
+  //factory.registerNodeType<MoveTo>("MoveTo");
 
   // Registering a SimpleActionNode using a function pointer.
   // You can use C++11 lambdas or std::bind

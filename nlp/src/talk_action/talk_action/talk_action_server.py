@@ -2,7 +2,7 @@ import rclpy
 from rclpy.action import ActionServer
 from rclpy.node import Node
 
-from interfaces.action import Talk
+from nlp_interfaces.action import Talk
 
 class TalkActionServer(Node):
 
@@ -16,6 +16,7 @@ class TalkActionServer(Node):
 
     def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
+        goal_handle.succeed()
         result = Talk.Result()
         return result
 

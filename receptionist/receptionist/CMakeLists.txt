@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(btcpp_sample LANGUAGES CXX)
+project(receptionist LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(receptionist main.cpp)
+add_executable(receptionist main.cpp say.cpp)
 
 find_package(ament_cmake QUIET)
 

@@ -46,6 +46,6 @@ public:
   // Override the virtual function tick()
   NodeStatus tick() override
   {
-    return super::tick();
+    return Talk::tick();
   }
 };
