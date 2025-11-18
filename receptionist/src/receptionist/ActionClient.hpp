@@ -16,11 +16,11 @@ public:
   explicit TalkActionClient(const rclcpp::NodeOptions & options)
   : Node("talk_action_client", options)
   {
-    this->client_ptr_ = rclcpp_action::create_client<nlp_interfaces::action::Talk>(
+    this->client_ptr = rclcpp_action::create_client<nlp_interfaces::action::Talk>(
       this,
       "talk");
 
-    this->timer_ = this->create_wall_timer(
+    this->timer = this->create_wall_timer(
       std::chrono::milliseconds(500),
       std::bind(&TalkActionClient::send_goal, this));
 
@@ -35,14 +35,11 @@ public:
   void send_goal();
 
 private:
-  rclcpp_action::Client<nlp_interfaces::action::Talk>::SharedPtr client_ptr_;
-  rclcpp::TimerBase::SharedPtr timer_;
+  rclcpp_action::Client<nlp_interfaces::action::Talk>::SharedPtr client_ptr;
+  rclcpp::TimerBase::SharedPtr timer;
   bool finished;
 
   void goal_response_callback(std::shared_future<rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr> future);
-
-  void feedback_callback(rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr,
-    const std::shared_ptr<const nlp_interfaces::action::Talk::Feedback> feedback)
   
   void result_callback(const rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::WrappedResult & result);
 };

@@ -9,9 +9,9 @@ void TalkActionClient::send_goal()
 {
     using namespace std::placeholders;
 
-    this->timer_->cancel();
+    this->timer->cancel();
 
-    if (!this->client_ptr_->wait_for_action_server()) {
+    if (!this->client_ptr->wait_for_action_server()) {
       RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
       rclcpp::shutdown();
     }
@@ -42,19 +42,8 @@ void TalkActionCliente::goal_response_callback(
     }
 }
 
-void TalkActionClient::feedback_callback(rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr,
-    const std::shared_ptr<const nlp_interfaces::action::Talk::Feedback> feedback)
+void TalkActionClient::result_callback(const rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::WrappedResult & result)
 {
-    std::stringstream ss;
-
-    ss << "Progress: ";
-    ss << feedback->progress;
-
-    RCLCPP_INFO(this->get_logger(), ss.str().c_str());
-  }
-
-  void TalkActionClient::result_callback(const rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::WrappedResult & result)
-  {
     finished=true;
 
     switch (result.code) {
