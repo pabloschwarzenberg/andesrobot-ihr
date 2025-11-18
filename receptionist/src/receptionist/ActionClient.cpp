@@ -46,10 +46,10 @@ void TalkActionClient::feedback_callback(rclcpp_action::ClientGoalHandle<nlp_int
     const std::shared_ptr<const nlp_interfaces::action::Talk::Feedback> feedback)
 {
     std::stringstream ss;
-    ss << "Next number in sequence received: ";
-    for (auto number : feedback->partial_sequence) {
-      ss << number << " ";
-    }
+
+    ss << "Progress: ";
+    ss << feedback->progress;
+
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
   }
 
@@ -72,9 +72,8 @@ void TalkActionClient::feedback_callback(rclcpp_action::ClientGoalHandle<nlp_int
     }
     std::stringstream ss;
     ss << "Result received: ";
-    for (auto number : result.result->sequence) {
-      ss << number << " ";
-    }
+    ss << result.result->status;
+
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
     rclcpp::shutdown();
 }
