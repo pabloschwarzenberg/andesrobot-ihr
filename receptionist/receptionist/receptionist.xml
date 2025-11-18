@@ -3,7 +3,8 @@
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
         <Sequence>
-            <Action ID="MoveTo" location="DoorLocation"/>
+            <SetBlackboard output_key="DoorLocation" value="0;0" />
+            <Action ID="MoveTo" location="{DoorLocation}"/>
             <Action ID="See" object="Person"/>
             <Action ID="Greet" speech="Hello"/>
             <Action ID="Ask" speech="What is your name?"/>

@@ -1,24 +1,10 @@
 #include "behaviortree_cpp_v3/bt_factory.h"
-#include "say.hpp"
+#include "Talk.hpp"
+#include "MoveTo.hpp"
+#include "Remember.hpp"
+#include "See.hpp"
 
 using namespace BT;
-
-// Example of custom SyncActionNode (synchronous action)
-// without ports.
-class ApproachObject : public BT::SyncActionNode
-{
-public:
-  ApproachObject(const std::string& name) :
-      BT::SyncActionNode(name, {})
-  {}
-
-  // You must override the virtual function tick()
-  BT::NodeStatus tick() override
-  {
-    std::cout << "ApproachObject: " << this->name() << std::endl;
-    return BT::NodeStatus::SUCCESS;
-  }
-};
 
 // Simple function that return a NodeStatus
 BT::NodeStatus CheckBattery()
@@ -56,11 +42,11 @@ int main()
     // We use the BehaviorTreeFactory to register our custom nodes
   BehaviorTreeFactory factory;
 
-  factory.registerNodeType<Greet>("MoveTo");
-  factory.registerNodeType<Greet>("See");
+  factory.registerNodeType<MoveTo>("MoveTo");
+  factory.registerNodeType<See>("See");
   factory.registerNodeType<Greet>("Greet");
-  factory.registerNodeType<Greet>("Ask");
-  factory.registerNodeType<Greet>("Remember");
+  factory.registerNodeType<Ask>("Ask");
+  factory.registerNodeType<Remember>("Remember");
 
   // Registering a SimpleActionNode using a function pointer.
   // You can use C++11 lambdas or std::bind
@@ -68,8 +54,8 @@ int main()
 
   //You can also create SimpleActionNodes using methods of a class
   GripperInterface gripper;
-  factory.registerSimpleAction("OpenGripper", [&](TreeNode&){ return gripper.open(); } );
-  factory.registerSimpleAction("CloseGripper", [&](TreeNode&){ return gripper.close(); } );
+  factory.registerSimpleAction("MoveTo", [&](TreeNode&){ return gripper.open(); } );
+  factory.registerSimpleAction("Talk", [&](TreeNode&){ return gripper.close(); } );
 
   // Trees are created at deployment-time (i.e. at run-time, but only
   // once at the beginning).

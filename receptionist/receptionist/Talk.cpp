@@ -1,4 +1,4 @@
-#include "say.hpp"
+#include "Talk.hpp"
 
 NodeStatus Talk::tick()
 {
@@ -15,6 +15,11 @@ NodeStatus Talk::tick()
 }
 
 NodeStatus Greet::tick()
+{
+  return Talk::tick();
+}
+
+NodeStatus Ask::tick()
 {
   return Talk::tick();
 }

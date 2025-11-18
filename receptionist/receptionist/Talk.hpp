@@ -34,3 +34,16 @@ public:
   // Override the virtual function tick()
   NodeStatus tick() override;
 };
+
+// SyncActionNode (synchronous action) with an input port.
+class Ask : public Talk
+{
+public:
+  // If your Node has ports, you must use this constructor signature 
+  Ask(const std::string& name, const NodeConfiguration& config)
+    : Talk(name, config)
+  { }
+
+  // Override the virtual function tick()
+  NodeStatus tick() override;
+};
