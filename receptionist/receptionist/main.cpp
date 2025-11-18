@@ -1,4 +1,5 @@
 #include "behaviortree_cpp_v3/bt_factory.h"
+#include "say.hpp"
 
 using namespace BT;
 
@@ -55,7 +56,7 @@ int main()
     // We use the BehaviorTreeFactory to register our custom nodes
   BehaviorTreeFactory factory;
 
-  //factory.registerNodeType<Greet>("Greet");
+  factory.registerNodeType<Greet>("Greet");
   //factory.registerNodeType<MoveTo>("MoveTo");
 
   // Registering a SimpleActionNode using a function pointer.
