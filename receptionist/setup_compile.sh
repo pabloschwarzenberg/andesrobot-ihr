@@ -1,4 +1,3 @@
-#rosdep install --from-paths src
 #sudo apt-get install ros-humble-behaviortree-cpp-v3
 #dpkg -L ros-humble-behaviortree-cpp-v3
 #sudo apt install ros-humble-ament-cmake-python

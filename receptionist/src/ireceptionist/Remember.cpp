@@ -2,7 +2,7 @@
 
 NodeStatus Remember::tick()
 {
-  Optional<std::string> msg = getInput<std::string>("object");
+  Expected<std::string> msg = getInput<std::string>("object");
   // Check if optional is valid. If not, throw its error
   if (!msg)
   {
