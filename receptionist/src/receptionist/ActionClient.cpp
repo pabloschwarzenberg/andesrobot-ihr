@@ -16,12 +16,12 @@ void TalkActionClient::send_goal()
       rclcpp::shutdown();
     }
 
-    auto goal_msg = Talk::Goal();
+    auto goal_msg = nlp_interfaces::action::Talk::Goal();
     goal_msg.speech = "Hello";
 
     RCLCPP_INFO(this->get_logger(), "Sending goal");
 
-    auto send_goal_options = rclcpp_action::Client<Talk>::SendGoalOptions();
+    auto send_goal_options = rclcpp_action::Client<nlp_interfaces::action::Talk>::SendGoalOptions();
     send_goal_options.goal_response_callback =
       std::bind(&TalkActionClient::goal_response_callback, this, _1);
     send_goal_options.feedback_callback =
@@ -32,7 +32,7 @@ void TalkActionClient::send_goal()
 }
 
 void TalkActionCliente::goal_response_callback(
-    std::shared_future<GoalHandleTalk::SharedPtr> future)
+    std::shared_future<rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr> future)
 {
     auto goal_handle = future.get();
     if (!goal_handle) {
@@ -42,8 +42,8 @@ void TalkActionCliente::goal_response_callback(
     }
 }
 
-void TalkActionClient::feedback_callback(GoalHandleTalk::SharedPtr,
-    const std::shared_ptr<const Talk::Feedback> feedback)
+void TalkActionClient::feedback_callback(rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr,
+    const std::shared_ptr<const nlp_interfaces::action::Talk::Feedback> feedback)
 {
     std::stringstream ss;
     ss << "Next number in sequence received: ";
@@ -53,7 +53,7 @@ void TalkActionClient::feedback_callback(GoalHandleTalk::SharedPtr,
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
   }
 
-  void TalkActionClient::result_callback(const GoalHandleTalk::WrappedResult & result)
+  void TalkActionClient::result_callback(const rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::WrappedResult & result)
   {
     finished=true;
 

@@ -13,13 +13,10 @@
 class TalkActionClient : public rclcpp::Node
 {
 public:
-  using Talk = nlp_interfaces::action::Talk;
-  using GoalHandleTalk = rclcpp_action::ClientGoalHandle<Talk>;
-
   explicit TalkActionClient(const rclcpp::NodeOptions & options)
   : Node("talk_action_client", options)
   {
-    this->client_ptr_ = rclcpp_action::create_client<Talk>(
+    this->client_ptr_ = rclcpp_action::create_client<nlp_interfaces::action::Talk>(
       this,
       "talk");
 
@@ -38,14 +35,14 @@ public:
   void send_goal();
 
 private:
-  rclcpp_action::Client<Talk>::SharedPtr client_ptr_;
+  rclcpp_action::Client<nlp_interfaces::action::Talk>::SharedPtr client_ptr_;
   rclcpp::TimerBase::SharedPtr timer_;
   bool finished;
 
-  void goal_response_callback(std::shared_future<GoalHandleTalk::SharedPtr> future);
+  void goal_response_callback(std::shared_future<rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr> future);
 
-  void feedback_callback(GoalHandleTalk::SharedPtr,
-    const std::shared_ptr<const Talk::Feedback> feedback)
+  void feedback_callback(rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr,
+    const std::shared_ptr<const nlp_interfaces::action::Talk::Feedback> feedback)
   
-  void result_callback(const GoalHandleTalk::WrappedResult & result);
+  void result_callback(const rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::WrappedResult & result);
 };
