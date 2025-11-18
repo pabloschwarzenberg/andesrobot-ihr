@@ -7,9 +7,9 @@ NodeStatus MoveTo::tick()
   if (!input)
   {
     throw BT::RuntimeError("missing required input [location]: ", 
-                            msg.error() );
+                            input.error() );
   }
-  Position2D target = res.value();
+  Position2D target = input.value();
   printf("Target positions: [ %.1f, %.1f ]\n", target.x, target.y );  
   return NodeStatus::SUCCESS;
 }

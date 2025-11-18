@@ -54,8 +54,8 @@ int main()
 
   //You can also create SimpleActionNodes using methods of a class
   GripperInterface gripper;
-  factory.registerSimpleAction("MoveTo", [&](TreeNode&){ return gripper.open(); } );
-  factory.registerSimpleAction("Talk", [&](TreeNode&){ return gripper.close(); } );
+  factory.registerSimpleAction("OpenGrip", [&](TreeNode&){ return gripper.open(); } );
+  factory.registerSimpleAction("CloseGrip", [&](TreeNode&){ return gripper.close(); } );
 
   // Trees are created at deployment-time (i.e. at run-time, but only
   // once at the beginning).
