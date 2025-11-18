@@ -16,22 +16,25 @@ void TalkActionClient::send_goal()
       rclcpp::shutdown();
     }
 
-    auto goal_msg = nlp_interfaces::action::Talk::Goal();
+    auto goal_msg = ITalk::Goal();
     goal_msg.speech = "Hello";
 
     RCLCPP_INFO(this->get_logger(), "Sending goal");
 
-    auto send_goal_options = rclcpp_action::Client<nlp_interfaces::action::Talk>::SendGoalOptions();
+    auto send_goal_options = rclcpp_action::Client<ITalk>::SendGoalOptions();
     send_goal_options.goal_response_callback =
       std::bind(&TalkActionClient::goal_response_callback, this, _1);
 
+    send_goal_options.feedback_callback =
+      std::bind(&TalkActionClient::feedback_callback, this, _1, _2);
+
     send_goal_options.result_callback =
       std::bind(&TalkActionClient::result_callback, this, _1);
-    this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
+    this->client_ptr->async_send_goal(goal_msg, send_goal_options);
 }
 
 void TalkActionClient::goal_response_callback(
-    std::shared_future<rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr> future)
+    GoalHandleITalk::SharedPtr future)
 {
     auto goal_handle = future.get();
     if (!goal_handle) {
@@ -41,7 +44,13 @@ void TalkActionClient::goal_response_callback(
     }
 }
 
-void TalkActionClient::result_callback(const rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::WrappedResult & result)
+void TalkActionClient::feedback_callback(GoalHandleITalk::SharedPtr,
+    const std::shared_ptr<const ITalk::Feedback> feedback)
+{
+    RCLCPP_INFO(this->get_logger(), "progresando");
+}
+
+void TalkActionClient::result_callback(const GoalHandleITalk::WrappedResult & result)
 {
     finished=true;
 
@@ -58,10 +67,8 @@ void TalkActionClient::result_callback(const rclcpp_action::ClientGoalHandle<nlp
         RCLCPP_ERROR(this->get_logger(), "Unknown result code");
         return;
     }
-    std::stringstream ss;
-    ss << "Talk Action Finished";
 
-    RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+    RCLCPP_INFO(this->get_logger(), "Finished");
     rclcpp::shutdown();
 }
 
