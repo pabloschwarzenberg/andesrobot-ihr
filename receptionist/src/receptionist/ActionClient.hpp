@@ -10,6 +10,9 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
+using TalkClient = nlp_interfaces::action::Talk;
+using GoalHandleTalkClient = rclcpp_action::ClientGoalHandle<TalkClient>;
+
 class TalkActionClient : public rclcpp::Node
 {
 public:
