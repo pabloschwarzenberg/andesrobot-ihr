@@ -11,4 +11,5 @@ python3 talk_action_server.py
 Para ejecutar el árbol de comportamiento
 
 cd andesrobot-ihr/receptionist/src/ireceptionist
+
 ../../../build/ireceptionist/ireceptionist 
