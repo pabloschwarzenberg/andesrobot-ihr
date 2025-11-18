@@ -8,11 +8,25 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(receptionist main.cpp Talk.cpp MoveTo.cpp Remember.cpp See.cpp)
 
 find_package(ament_cmake QUIET)
+find_package(behaviortree_cpp_v3 REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(rclcpp_components REQUIRED)
+find_package(nlp_interfaces REQUIRED)
+
+set(dependencies
+behaviortree_cpp_v3
+rclcpp
+rclcpp_action
+rclcpp_components
+nlp_interfaces
+)
+
+include_directories(include/nlp_interfaces)
 
 if(ament_cmake_FOUND)
 
-    find_package(behaviortree_cpp_v3 REQUIRED)
-    ament_target_dependencies(receptionist behaviortree_cpp_v3)
+    ament_target_dependencies(receptionist ${dependencies})
 
 elseif( CATKIN_DEVEL_PREFIX OR CATKIN_BUILD_BINARY_PACKAGE)
 
@@ -23,8 +37,7 @@ elseif( CATKIN_DEVEL_PREFIX OR CATKIN_BUILD_BINARY_PACKAGE)
 
 else()
 
-    find_package(behaviortree_cpp_v3 REQUIRED)
-    target_link_libraries(receptionist behaviortree_cpp_v3)
+    target_link_libraries(receptionist ${dependencies})
 
 endif()
 

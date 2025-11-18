@@ -1,4 +1,12 @@
 #include "Talk.hpp"
+#include <functional>
+#include <memory>
+#include <thread>
+
+#include "nlp_interfaces/action/talk.hpp"
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp_action/rclcpp_action.hpp"
+#include "rclcpp_components/register_node_macro.hpp"
 
 NodeStatus Talk::tick()
 {

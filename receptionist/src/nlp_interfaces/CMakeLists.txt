@@ -24,9 +24,11 @@ if(BUILD_TESTING)
 endif()
 
 find_package(rosidl_default_generators REQUIRED)
+find_package(action_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
 	"action/Talk.action"
 	)
 
+ament_export_dependencies(rosidl_default_runtime)
 ament_package()
