@@ -8,26 +8,32 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
-NodeStatus Talk::tick()
+NodeStatus Talk::onStart()
 {
-  Optional<std::string> msg = getInput<std::string>("speech");
-  // Check if optional is valid. If not, throw its error
-  if (!msg)
+  if(!getInput<std::string>("speech",goal))
   {
-    throw BT::RuntimeError("missing required input [message]: ", 
-                            msg.error() );
+    throw BT::RuntimeError("missing required input [speech]");
   }
-  // use the method value() to extract the valid message.
-  std::cout << "Robot says: " << msg.value() << std::endl;
+  return NodeStatus::RUNNING;
+}
+
+NodeStatus Talk::onRunning()
+{
+  std::cout << "Robot says: " << goal << std::endl;
   return NodeStatus::SUCCESS;
 }
 
-NodeStatus Greet::tick()
+void Talk::onHalted()
 {
-  return Talk::tick();
+  printf("Talk: ABORTED");
 }
 
-NodeStatus Ask::tick()
+NodeStatus Greet::onRunning()
 {
-  return Talk::tick();
+  return Talk::onRunning();
+}
+
+NodeStatus Ask::onRunning()
+{
+  return Talk::onRunning();
 }
