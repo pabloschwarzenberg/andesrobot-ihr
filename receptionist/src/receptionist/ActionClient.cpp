@@ -60,8 +60,7 @@ void TalkActionClient::result_callback(const rclcpp_action::ClientGoalHandle<nlp
         return;
     }
     std::stringstream ss;
-    ss << "Result received: ";
-    ss << result.result->status;
+    ss << "Talk Action Finished";
 
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
     rclcpp::shutdown();
