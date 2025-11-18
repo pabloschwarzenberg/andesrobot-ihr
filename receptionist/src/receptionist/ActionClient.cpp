@@ -24,14 +24,13 @@ void TalkActionClient::send_goal()
     auto send_goal_options = rclcpp_action::Client<nlp_interfaces::action::Talk>::SendGoalOptions();
     send_goal_options.goal_response_callback =
       std::bind(&TalkActionClient::goal_response_callback, this, _1);
-    send_goal_options.feedback_callback =
-      std::bind(&TalkActionClient::feedback_callback, this, _1, _2);
+
     send_goal_options.result_callback =
       std::bind(&TalkActionClient::result_callback, this, _1);
     this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
 }
 
-void TalkActionCliente::goal_response_callback(
+void TalkActionClient::goal_response_callback(
     std::shared_future<rclcpp_action::ClientGoalHandle<nlp_interfaces::action::Talk>::SharedPtr> future)
 {
     auto goal_handle = future.get();
