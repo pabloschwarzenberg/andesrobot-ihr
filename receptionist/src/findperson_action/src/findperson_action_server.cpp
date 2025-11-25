@@ -7,6 +7,10 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
+#include <opencv2/opencv.hpp>
+#include <opencv2/dnn.hpp>
+#include <opencv2/imgproc.hpp>
+
 namespace vision_actions
 {  
   class FindPersonActionServer : public rclcpp::Node
