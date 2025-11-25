@@ -34,9 +34,10 @@ int main()
 		detector->detect(frame, faces);
 		if(faces.rows!=0)
 		{
+			std::cout << "face detected" << std::endl;
 			cv::namedWindow("Camera Feed", cv::WINDOW_AUTOSIZE);
 			cv::imshow("Camera Feed", frame);
-			if (cv::waitKey(1) == 'q')
+			if (cv::waitKey(0) == 'q')
 				break;
 		}
 		else
