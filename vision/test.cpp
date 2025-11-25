@@ -32,15 +32,15 @@ int main()
 		}	
 		detector->setInputSize(frame.size());
 		detector->detect(frame, faces);
-
 		if(faces.rows!=0)
 		{
-    	cv::namedWindow("Camera Feed", cv::WINDOW_AUTOSIZE);
-        cv::imshow("Camera Feed", frame);
-		cv::imwrite("frame.jpg",frame);
-        if (cv::waitKey(1) == 'q')
-            break;
+			cv::namedWindow("Camera Feed", cv::WINDOW_AUTOSIZE);
+			cv::imshow("Camera Feed", frame);
+			if (cv::waitKey(1) == 'q')
+				break;
 		}
+		else
+			std::cout << "no faces" << std::endl;
     }
 
     cap.release();
