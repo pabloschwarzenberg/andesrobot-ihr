@@ -80,7 +80,7 @@ namespace vision_actions
 	    if(!cap.isOpened())
 	    {
         result->found = 0;
-        goal_handle->fail(result)
+        goal_handle->failed(result)
         RCLCPP_INFO(this->get_logger(), "Could not open camera");
 		    return;
 	    }
