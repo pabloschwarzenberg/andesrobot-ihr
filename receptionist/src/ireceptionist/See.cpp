@@ -12,7 +12,7 @@ bool See::setGoal(RosActionNode::Goal& goal)
 
 NodeStatus See::onResultReceived(const WrappedResult& wr)
 {
-  std::cout << wr.result->found << std::endl;
+  std::cout << (int)wr.result->found << std::endl;
   return NodeStatus::SUCCESS;
 }
 
@@ -23,6 +23,6 @@ NodeStatus See::onFailure(ActionNodeErrorCode error)
 
 NodeStatus See::onFeedback(const std::shared_ptr<const Feedback> feedback)
 {
-  std::cout << feedback->progress << std::endl;
+  std::cout << (int)feedback->progress << std::endl;
   return NodeStatus::RUNNING;
 }
