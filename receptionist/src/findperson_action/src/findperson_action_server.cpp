@@ -2,7 +2,7 @@
 #include <memory>
 #include <thread>
 
-#include "vision_interfaces/action/findperson.hpp"
+#include "vision_interfaces/action/find_person.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"

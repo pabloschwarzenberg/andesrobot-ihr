@@ -12,6 +12,9 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(rclcpp_components REQUIRED)
 
+include_directories(include/vision_interfaces)
+include_directories(include/rclcpp_components)
+
 add_library(action_server SHARED
   src/findperson_action_server.cpp)
 target_include_directories(action_server PRIVATE
