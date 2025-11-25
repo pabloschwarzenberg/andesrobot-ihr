@@ -97,7 +97,21 @@ namespace vision_actions
       cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
 	    cv::Mat frame;
       cv::Mat faces;
-      
+
+		  cap >> frame;
+		  if (frame.empty())
+      {
+				std::cerr << "Error: Blank frame grabbed." << std::endl;
+				break;
+		  }	
+		  detector->setInputSize(frame.size());
+		  detector->detect(frame, faces);
+		  if(faces.rows!=0)
+        result->found=faces.rows;
+  		else
+			  result->found=0;
+      cap.release();
+
       goal_handle->publish_feedback(feedback);
       RCLCPP_INFO(this->get_logger(), "Publish feedback");
 
@@ -105,7 +119,6 @@ namespace vision_actions
 
       if (rclcpp::ok())
       {
-          result->found = 1;
           goal_handle->succeed(result);
           RCLCPP_INFO(this->get_logger(), "Goal succeeded");
       }
