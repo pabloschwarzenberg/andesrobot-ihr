@@ -2,7 +2,7 @@
 
 bool See::setGoal(RosActionNode::Goal& goal)
 {
-  getInput("object", goal.object);
+  getInput("number", goal.number);
   return true;
 }
 
