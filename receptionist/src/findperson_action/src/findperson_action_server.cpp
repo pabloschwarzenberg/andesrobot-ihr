@@ -10,7 +10,7 @@
 class FindPersonActionServer : public rclcpp::Node
 {
 public:
-  using IFindPerson = action::FindPerson;
+  using IFindPerson = vision_interfaces::action::FindPerson;
   using GoalHandleIFindPerson = rclcpp_action::ServerGoalHandle<IFindPerson>;
 
   ACTION_TUTORIALS_CPP_PUBLIC
