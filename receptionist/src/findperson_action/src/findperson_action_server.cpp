@@ -80,7 +80,7 @@ namespace vision_actions
       cv::Ptr<cv::FaceDetectorYN> detector = cv::FaceDetectorYN::create(modelPath, "", cv::Size(320, 240));
       if (detector.empty())
       {
-        goal_handle->abort(result);
+        goal_handle->set_aborted(result);
         RCLCPP_INFO(this->get_logger(), "Failed to load YuNet model.");
 		    return;
       }
@@ -89,7 +89,7 @@ namespace vision_actions
 	    if(!cap.isOpened())
 	    {
         result->found = 0;
-        goal_handle->abort(result);
+        goal_handle->set_aborted(result);
         RCLCPP_INFO(this->get_logger(), "Could not open camera");
 		    return;
 	    }
@@ -102,7 +102,7 @@ namespace vision_actions
 		  if (frame.empty())
       {
         result->found = 0;
-        goal_handle->abort(result);
+        goal_handle->set_aborted(result);
         RCLCPP_INFO(this->get_logger(), "Blank frame grabbed.");
         return;
 		  }	
