@@ -82,6 +82,7 @@ private:
         goal_handle->succeed(result);
         RCLCPP_INFO(this->get_logger(), "Goal succeeded");
     }
+  }
 };
 
 RCLCPP_COMPONENTS_REGISTER_NODE(FindPersonActionServer)
