@@ -76,6 +76,15 @@ namespace vision_actions
           return;
       }
 
+	    std::string modelPath = "face_detection_yunet_2023mar.onnx";
+      cv::Ptr<cv::FaceDetectorYN> detector = cv::FaceDetectorYN::create(modelPath, "", cv::Size(320, 240));
+      if (detector.empty())
+      {
+        goal_handle->abort(result);
+        RCLCPP_INFO(this->get_logger(), "Failed to load YuNet model.");
+		    return;
+      }
+
 	    cv::VideoCapture cap(0);
 	    if(!cap.isOpened())
 	    {
@@ -87,6 +96,7 @@ namespace vision_actions
 	    cap.set(cv::CAP_PROP_FRAME_WIDTH, 640);
       cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
 	    cv::Mat frame;
+      cv::Mat faces;
       
       goal_handle->publish_feedback(feedback);
       RCLCPP_INFO(this->get_logger(), "Publish feedback");
