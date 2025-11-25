@@ -17,6 +17,8 @@ include_directories(include/vision_interfaces)
 include_directories(include/rclcpp_components)
 include_directories(/usr/include/opencv4)
 
+add_subdirectory(/usr/lib)
+
 add_library(action_server SHARED
   src/findperson_action_server.cpp)
 target_include_directories(action_server PRIVATE
@@ -24,6 +26,7 @@ target_include_directories(action_server PRIVATE
   $<INSTALL_INTERFACE:include>)
 target_compile_definitions(action_server
   PRIVATE "FINDPERSON_CPP_BUILDING_DLL")
+target_link_libraries(MyTarget PRIVATE OpenCV)
 ament_target_dependencies(action_server
   "vision_interfaces"
   "rclcpp"
