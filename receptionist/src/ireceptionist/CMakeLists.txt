@@ -10,6 +10,7 @@ add_executable(ireceptionist main.cpp Talk.cpp Ask.cpp MoveTo.cpp Remember.cpp S
 find_package(ament_cmake QUIET)
 find_package(behaviortree_cpp REQUIRED)
 find_package(nlp_interfaces REQUIRED)
+find_package(vision_interfaces REQUIRED)
 find_package(behaviortree_ros2 REQUIRED)
 find_package(btcpp_ros2_interfaces REQUIRED)
 find_package(std_msgs REQUIRED)
@@ -19,9 +20,11 @@ set(dependencies
 behaviortree_cpp
 behaviortree_ros2
 nlp_interfaces
+vision_interfaces
 )
 
 include_directories(include/nlp_interfaces)
+include_directories(include/vision_interfaces)
 include_directories(include/behaviortree_ros2)
 
 if(ament_cmake_FOUND)
