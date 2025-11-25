@@ -17,12 +17,6 @@ int main(int argc, char** argv)
 
   factory.registerNodeType<MoveTo>("MoveTo");
 
-  auto node = std::make_shared<rclcpp::Node>("see_action_client");
-  RosNodeParams params;
-  params.nh = node;
-  params.default_port_value = "findperson";
-  factory.registerNodeType<See>("See",params);
-
   auto node = std::make_shared<rclcpp::Node>("talk_action_client");
   RosNodeParams params;
   params.nh = node;
@@ -35,6 +29,12 @@ int main(int argc, char** argv)
   params2.default_port_value = "Ask";
   factory.registerNodeType<Ask>("Ask",params2);
   
+  auto node3 = std::make_shared<rclcpp::Node>("see_action_client");
+  RosNodeParams params3;
+  params3.nh = node3;
+  params3.default_port_value = "findperson";
+  factory.registerNodeType<See>("See",params3);
+
   factory.registerNodeType<Remember>("Remember");
 
    auto tree = factory.createTreeFromFile("./receptionist.xml");
