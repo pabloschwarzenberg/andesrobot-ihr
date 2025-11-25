@@ -16,7 +16,7 @@ int main() {
     }
 
     // Load an image
-    cv::Mat image = cv::imread("frame.jpg"); // Replace with your image path
+    cv::Mat image = cv::imread("frame_no_face.jpg"); // Replace with your image path
     if (image.empty()) {
         std::cerr << "Failed to load image." << std::endl;
         return -1;
@@ -27,6 +27,17 @@ int main() {
 
     // Detect faces
     cv::Mat faces;
+    detector->detect(image, faces);
+
+    if(faces.rows==0)
+        std::cout << "No Faces" << std::endl;
+
+    image = cv::imread("frame_face.jpg"); // Replace with your image path
+    if (image.empty()) {
+        std::cerr << "Failed to load image." << std::endl;
+        return -1;
+    }
+    detector->setInputSize(image.size());
     detector->detect(image, faces);
 
     // Draw bounding boxes and landmarks
