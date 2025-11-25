@@ -26,7 +26,7 @@ target_include_directories(action_server PRIVATE
   $<INSTALL_INTERFACE:include>)
 target_compile_definitions(action_server
   PRIVATE "FINDPERSON_CPP_BUILDING_DLL")
-target_link_libraries(MyTarget PRIVATE OpenCV)
+target_link_libraries(action_server PRIVATE OpenCV)
 ament_target_dependencies(action_server
   "vision_interfaces"
   "rclcpp"
