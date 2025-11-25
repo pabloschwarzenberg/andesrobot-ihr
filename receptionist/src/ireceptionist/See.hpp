@@ -8,7 +8,6 @@ using namespace BT;
 using IFindPerson = vision_interfaces::action::FindPerson;
 using GoalHandleIFindPerson = rclcpp_action::ClientGoalHandle<IFindPerson>;
 
-// SyncActionNode (synchronous action) with an input port.
 class See : public RosActionNode<IFindPerson>
 {
 public:
@@ -17,10 +16,8 @@ public:
     : RosActionNode(name, config, params)
   { }
 
-  // It is mandatory to define this STATIC method.
   static PortsList providedPorts()
   {
-    // This action has a single input port called "message"
     return { InputPort<std::string>("object") };
   }
 
