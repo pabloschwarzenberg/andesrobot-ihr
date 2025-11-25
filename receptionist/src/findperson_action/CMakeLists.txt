@@ -17,8 +17,6 @@ include_directories(include/vision_interfaces)
 include_directories(include/rclcpp_components)
 include_directories(/usr/include/opencv4)
 
-add_subdirectory(/usr/lib)
-
 add_library(action_server SHARED
   src/findperson_action_server.cpp)
 target_include_directories(action_server PRIVATE
