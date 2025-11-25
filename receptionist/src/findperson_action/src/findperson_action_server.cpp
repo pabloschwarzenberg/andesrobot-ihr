@@ -75,6 +75,18 @@ namespace vision_actions
           RCLCPP_INFO(this->get_logger(), "Goal canceled");
           return;
       }
+
+	    cv::VideoCapture cap(0);
+	    if(!cap.isOpened())
+	    {
+        result->found = 0;
+        goal_handle->fail(result)
+        RCLCPP_INFO(this->get_logger(), "Could not open camera");
+		    return;
+	    }
+	    cap.set(cv::CAP_PROP_FRAME_WIDTH, 640);
+      cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
+	    cv::Mat frame;
       
       goal_handle->publish_feedback(feedback);
       RCLCPP_INFO(this->get_logger(), "Publish feedback");
