@@ -101,8 +101,10 @@ namespace vision_actions
 		  cap >> frame;
 		  if (frame.empty())
       {
-				std::cerr << "Error: Blank frame grabbed." << std::endl;
-				break;
+        result->found = 0;
+        goal_handle->abort(result);
+        RCLCPP_INFO(this->get_logger(), "Blank frame grabbed.");
+        return;
 		  }	
 		  detector->setInputSize(frame.size());
 		  detector->detect(frame, faces);
