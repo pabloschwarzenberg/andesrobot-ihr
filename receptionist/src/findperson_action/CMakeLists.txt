@@ -15,6 +15,7 @@ find_package(OpenCV REQUIRED)
 
 include_directories(include/vision_interfaces)
 include_directories(include/rclcpp_components)
+include_directories(/usr/include/opencv4)
 
 add_library(action_server SHARED
   src/findperson_action_server.cpp)
