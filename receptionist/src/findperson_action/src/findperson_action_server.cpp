@@ -98,26 +98,34 @@ namespace vision_actions
 	    cv::Mat frame;
       cv::Mat faces;
 
-		  cap >> frame;
-		  if (frame.empty())
+      for(i=0;i<5;i++)
       {
-        result->found = 0;
-        goal_handle->abort(result);
-        RCLCPP_INFO(this->get_logger(), "Blank frame grabbed.");
-        return;
-		  }	
-		  detector->setInputSize(frame.size());
-		  detector->detect(frame, faces);
-		  if(faces.rows!=0)
-        result->found=faces.rows;
-  		else
-			  result->found=0;
+        cap >> frame;
+        if (frame.empty())
+        {
+          result->found = 0;
+          goal_handle->abort(result);
+          RCLCPP_INFO(this->get_logger(), "Blank frame grabbed.");
+          break;
+        }	
+        detector->setInputSize(frame.size());
+        detector->detect(frame, faces);
+        if(faces.rows!=0)
+        {
+          result->found=faces.rows;
+          break;
+        }
+        else
+        {
+          result->found=0;
+          feedback->progress=i+1;
+        }
+        goal_handle->publish_feedback(feedback);
+        RCLCPP_INFO(this->get_logger(), "Publish feedback");
+
+        loop_rate.sleep();
+      }
       cap.release();
-
-      goal_handle->publish_feedback(feedback);
-      RCLCPP_INFO(this->get_logger(), "Publish feedback");
-
-      //loop_rate.sleep();
 
       if (rclcpp::ok())
       {
