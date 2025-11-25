@@ -67,6 +67,7 @@ namespace vision_actions
       auto feedback = std::make_shared<IFindPerson::Feedback>();
       feedback->progress=0;
       auto result = std::make_shared<IFindPerson::Result>();
+      int i;
 
       if (goal_handle->is_canceling())
       {
