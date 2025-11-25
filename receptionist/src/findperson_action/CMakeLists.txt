@@ -26,12 +26,12 @@ target_include_directories(action_server PRIVATE
   $<INSTALL_INTERFACE:include>)
 target_compile_definitions(action_server
   PRIVATE "FINDPERSON_CPP_BUILDING_DLL")
-target_link_libraries(action_server PRIVATE OpenCV)
 ament_target_dependencies(action_server
   "vision_interfaces"
   "rclcpp"
   "rclcpp_action"
-  "rclcpp_components")
+  "rclcpp_components"
+  "opencv4")
 rclcpp_components_register_node(action_server PLUGIN "vision_actions::FindPersonActionServer" EXECUTABLE findperson_action_server)
 install(TARGETS
   action_server
