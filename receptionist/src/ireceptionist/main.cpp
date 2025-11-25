@@ -16,7 +16,12 @@ int main(int argc, char** argv)
   BehaviorTreeFactory factory;
 
   factory.registerNodeType<MoveTo>("MoveTo");
-  factory.registerNodeType<See>("See");
+
+  auto node = std::make_shared<rclcpp::Node>("see_action_client");
+  RosNodeParams params;
+  params.nh = node;
+  params.default_port_value = "findperson";
+  factory.registerNodeType<See>("See",params);
 
   auto node = std::make_shared<rclcpp::Node>("talk_action_client");
   RosNodeParams params;
