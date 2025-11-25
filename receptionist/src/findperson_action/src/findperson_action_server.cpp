@@ -13,7 +13,6 @@ public:
   using IFindPerson = vision_interfaces::action::FindPerson;
   using GoalHandleIFindPerson = rclcpp_action::ServerGoalHandle<IFindPerson>;
 
-  ACTION_TUTORIALS_CPP_PUBLIC
   explicit FindPersonActionServer(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
   : Node("findperson_action_server", options)
   {
@@ -59,9 +58,9 @@ private:
     RCLCPP_INFO(this->get_logger(), "Executing goal");
     rclcpp::Rate loop_rate(1);
     const auto goal = goal_handle->get_goal();
-    auto feedback = std::make_shared<FindPerson::Feedback>();
+    auto feedback = std::make_shared<IFindPerson::Feedback>();
     feedback->status=0;
-    auto result = std::make_shared<Fibonacci::Result>();
+    auto result = std::make_shared<IFindPerson::Result>();
 
     if (goal_handle->is_canceling())
     {
