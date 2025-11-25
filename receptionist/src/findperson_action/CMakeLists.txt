@@ -11,6 +11,7 @@ find_package(vision_interfaces REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(rclcpp_components REQUIRED)
+find_package(OpenCV REQUIRED)
 
 include_directories(include/vision_interfaces)
 include_directories(include/rclcpp_components)
