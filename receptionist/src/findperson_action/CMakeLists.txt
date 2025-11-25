@@ -27,7 +27,7 @@ ament_target_dependencies(action_server
   "rclcpp"
   "rclcpp_action"
   "rclcpp_components")
-rclcpp_components_register_node(action_server PLUGIN "FindPersonActionServer" EXECUTABLE findperson_action_server)
+rclcpp_components_register_node(action_server PLUGIN "vision_actions::FindPersonActionServer" EXECUTABLE findperson_action_server)
 install(TARGETS
   action_server
   ARCHIVE DESTINATION lib
