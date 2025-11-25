@@ -59,7 +59,7 @@ private:
     rclcpp::Rate loop_rate(1);
     const auto goal = goal_handle->get_goal();
     auto feedback = std::make_shared<IFindPerson::Feedback>();
-    feedback->status=0;
+    feedback->progress=0;
     auto result = std::make_shared<IFindPerson::Result>();
 
     if (goal_handle->is_canceling())

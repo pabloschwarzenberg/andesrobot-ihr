@@ -1,5 +1,5 @@
 int8 number
 ---
-int8 status
+int8 found
 ---
 int8 progress
