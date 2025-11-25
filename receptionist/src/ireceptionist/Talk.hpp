@@ -12,11 +12,9 @@ using GoalHandleITalk = rclcpp_action::ClientGoalHandle<ITalk>;
 
 using namespace BT;
 
-// SyncActionNode (synchronous action) with an input port.
 class Talk : public RosActionNode<ITalk>
 {
 public:
-  // If your Node has ports, you must use this constructor signature 
   Talk(const std::string& name, const NodeConfiguration& config,
 		  const RosNodeParams& params)
     : RosActionNode(name, config, params)

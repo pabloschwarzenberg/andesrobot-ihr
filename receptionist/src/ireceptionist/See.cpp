@@ -1,15 +1,22 @@
 #include "See.hpp"
 
-NodeStatus See::tick()
+bool See::setGoal(RosActionNode::Goal& goal)
 {
-  Expected<std::string> msg = getInput<std::string>("object");
-  // Check if optional is valid. If not, throw its error
-  if (!msg)
-  {
-    throw BT::RuntimeError("missing required input [object]: ", 
-                            msg.error() );
-  }
-  // use the method value() to extract the valid message.
-  std::cout << "Robot see: " << msg.value() << std::endl;
+  getInput("object", goal.object);
+  return true;
+}
+
+NodeStatus See::onResultReceived(const WrappedResult& wr)
+{
   return NodeStatus::SUCCESS;
+}
+
+NodeStatus See::onFailure(ActionNodeErrorCode error)
+{
+  return NodeStatus::FAILURE;
+}
+
+NodeStatus See::onFeedback(const std::shared_ptr<const Feedback> feedback)
+{
+  return NodeStatus::RUNNING;
 }

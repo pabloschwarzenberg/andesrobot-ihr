@@ -1,14 +1,20 @@
+#include "rclcpp/rclcpp.hpp"
 #include "behaviortree_cpp/bt_factory.h"
+#include <behaviortree_ros2/bt_action_node.hpp>
+#include "vision_interfaces/action/find_person.hpp"
 
 using namespace BT;
 
+using IFindPerson = vision_interfaces::action::FindPerson;
+using GoalHandleIFindPerson = rclcpp_action::ClientGoalHandle<IFindPerson>;
+
 // SyncActionNode (synchronous action) with an input port.
-class See : public SyncActionNode
+class See : public RosActionNode<IFindPerson>
 {
 public:
-  // If your Node has ports, you must use this constructor signature 
-  See(const std::string& name, const NodeConfiguration& config)
-    : SyncActionNode(name, config)
+  See(const std::string& name, const NodeConfiguration& config,
+		  const RosNodeParams& params)
+    : RosActionNode(name, config, params)
   { }
 
   // It is mandatory to define this STATIC method.
@@ -18,6 +24,11 @@ public:
     return { InputPort<std::string>("object") };
   }
 
-  // Override the virtual function tick()
-  NodeStatus tick() override;
+  bool setGoal(RosActionNode::Goal& goal) override;
+
+  NodeStatus onResultReceived(const WrappedResult& wr) override;
+
+  virtual NodeStatus onFailure(ActionNodeErrorCode error) override;
+
+  NodeStatus onFeedback(const std::shared_ptr<const Feedback> feedback);
 };
