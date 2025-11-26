@@ -28,10 +28,7 @@ find_package(action_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
 	"action/Talk.action"
-	)
-
-rosidl_generate_interfaces(${PROJECT_NAME}
-	"action/Ask.action"
+  "action/Ask.action"
 	)
 
 ament_export_dependencies(rosidl_default_runtime)
