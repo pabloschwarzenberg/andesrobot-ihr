@@ -7,13 +7,13 @@
 #include <cstdlib>
 #include <memory>
 
-using ITalk = nlp_interfaces::action::Talk;
-using GoalHandleITalk = rclcpp_action::ClientGoalHandle<ITalk>;
+using IAsk = nlp_interfaces::action::Ask;
+using GoalHandleIAsk = rclcpp_action::ClientGoalHandle<IAsk>;
 
 using namespace BT;
 
 // SyncActionNode (synchronous action) with an input port.
-class Ask : public RosActionNode<ITalk>
+class Ask : public RosActionNode<IAsk>
 {
 public:
   // If your Node has ports, you must use this constructor signature 
