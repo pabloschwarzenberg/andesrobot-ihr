@@ -32,7 +32,7 @@ class AskActionServer(Node):
 
         samplerate = int(sd.query_devices(None, "input")["default_samplerate"])
         rec = KaldiRecognizer(self.model, samplerate)
-        with sd.RawInputStream(samplerate=samplerate, blocksize=4000, dtype="int16", channels=1, callback=callback):
+        with sd.RawInputStream(samplerate=samplerate, blocksize=4000, dtype="int16", channels=1, callback=listen_callback):
             while True:
                 data = AskActionServer.Q.get()
                 if rec.AcceptWaveform(data):
