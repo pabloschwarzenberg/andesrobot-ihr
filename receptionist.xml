@@ -8,7 +8,7 @@
             <Action ID="See" object="Person" cardinality="1"/>
             <Action ID="Talk" speech="Hello"/>
             <Action ID="Ask" speech="What is your name?" response="{person1}"/>
-            <Action ID="Talk" speech="Hello {person1}"/>
+            <Action ID="Talk" speech="{person1}"/>
             <Action ID="Ask" speech="What is your favorite drink?" response="{drink1}"/>
             <Action ID="Remember" object="Person"/>
         </Sequence>
