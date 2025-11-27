@@ -25,7 +25,7 @@ public:
   // It is mandatory to define this STATIC method.
   static PortsList providedPorts()
   {
-    return { InputPort<std::string>("speech") };
+    return { InputPort<std::string>("speech"), OutputPort<std::string>("response") };
   }
 
   bool setGoal(RosActionNode::Goal& goal) override;

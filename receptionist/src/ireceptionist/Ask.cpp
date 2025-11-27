@@ -15,6 +15,7 @@ bool Ask::setGoal(RosActionNode::Goal& goal)
 
 NodeStatus Ask::onResultReceived(const WrappedResult& wr)
 {
+  setOutput("response",wr.result->response);
   return NodeStatus::SUCCESS;
 }
 
