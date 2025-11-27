@@ -36,7 +36,8 @@ class AskActionServer(Node):
             while True:
                 data = AskActionServer.Q.get()
                 if rec.AcceptWaveform(data):
-                    response=rec.Result()["text"]
+                    response=rec.Result()
+                    print(response)
                     break
 
         goal_handle.succeed()
