@@ -6,6 +6,7 @@ import espeak_ng
 from subprocess import call
 import queue, sys, sounddevice as sd
 from vosk import Model, KaldiRecognizer
+import json
 
 from nlp_interfaces.action import Ask
 
@@ -36,13 +37,13 @@ class AskActionServer(Node):
             while True:
                 data = AskActionServer.Q.get()
                 if rec.AcceptWaveform(data):
-                    response=rec.Result()
-                    print(response)
+                    response=json.loads(rec.Result())
+                    print(response.get("text"))
                     break
 
         goal_handle.succeed()
         result = Ask.Result()
-        result.response=response
+        result.response=response.get("text")
         return result
 
 def main(args=None):
