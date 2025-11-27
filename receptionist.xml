@@ -8,12 +8,12 @@
             <Action ID="See" object="Person" cardinality="1"/>
             <Action ID="Talk" speech="Hello"/>
             <Action ID="Ask" speech="What is your name?" response="{person1}"/>
-            <Script code="greeting := 'Hello, ' + {person1} + '! Welcome.'" />
+            <Script code=" greeting:='Hello, '+person1+'! Welcome.' " />
             <Action ID="Talk" speech="{greeting}"/>
             <Action ID="Ask" speech="What is your favorite drink?" response="{drink1}"/>
-            <Script code="offering := 'You can take, ' + {drink1} + ' from the table.'" />
+            <Script code=" offering:='You can take, '+drink1+' from the table.' " />
             <Action ID="Talk" speech="{offering}"/>
-            <Script code="offering := 'Please have a seat, ' + {person1} + '.'" />
+            <Script code=" offering='Please have a seat, '+person1+'.' " />
             <Action ID="Talk" speech="{offering}"/>
             <Action ID="Remember" object="Person"/>
         </Sequence>
