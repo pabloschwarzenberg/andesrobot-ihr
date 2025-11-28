@@ -130,7 +130,7 @@ namespace vision_actions
 
       if (rclcpp::ok())
       {
-          if(result->found!=goal_handle->get_goal()->number)
+          if(result->found < goal_handle->get_goal()->number)
           {
             goal_handle->abort(result);
             RCLCPP_INFO(this->get_logger(), "Goal failed");
