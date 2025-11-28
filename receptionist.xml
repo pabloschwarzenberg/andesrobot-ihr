@@ -6,13 +6,13 @@
             <SetBlackboard output_key="DoorLocation" value="0;0" />
 	        <CheckNode node="/findperson_action_server"/>
             <Action ID="Talk" speech="Hello. I am the robot from Team AndesRobot. I will demonstrate navigation,
-             speech and social interacion. I will welcome the people entering this home and help them get seated."/>
+             speech and social interaction. I will welcome the people entering this home and help them get seated."/>
 	        <Action ID="MoveTo" location="{DoorLocation}"/>
 	        <RetryUntilSuccessful num_attempts="-1">
 		        <Action ID="See" object="Person" cardinality="1"/>
 	        </RetryUntilSuccessful>
             <Action ID="Ask" speech="Hello. What is your name?" response="{person1}"/>
-            <Script code=" greeting:='Nice to meet you, '+person1+'!. I will remember your name. You may seat here,
+            <Script code=" greeting:='Nice to meet you, '+person1+'. I will remember your name. You may seat here,
             please follow me.' " />
             <Action ID="Talk" speech="{greeting}"/>
             <Action ID="Ask" speech="What is your favorite drink?" response="{drink1}"/>

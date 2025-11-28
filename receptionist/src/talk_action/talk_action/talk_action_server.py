@@ -22,7 +22,7 @@ class TalkActionServer(Node):
 #        espeak_ng.initialize(output=espeak_AUDIO_OUTPUT.AUDIO_OUTPUT_SYNCH_PLAYBACK)
 #        espeak_ng.set_voice_by_properties(name="mb-us2")
 #        espeak_ng.synth(goal_handle.request.speech)
-        call(["espeak-ng","-v","mb-us2",goal_handle.request.speech]) 
+        call(["espeak-ng","-v","mb-us2","-s","128",goal_handle.request.speech]) 
         goal_handle.succeed()
         result = Talk.Result()
         return result
