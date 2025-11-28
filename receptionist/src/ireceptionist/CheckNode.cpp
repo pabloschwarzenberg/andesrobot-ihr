@@ -1,10 +1,9 @@
-#include "CheckNodes.hpp"
+#include "CheckNode.hpp"
 
-NodeStatus CheckNodes::tick()
+NodeStatus CheckNode::tick()
 {
     auto node = rclcpp::Node::make_shared("node_checker");
-    std::string target_node_name = "findperson_action";
-
+    std::string target_node_name = getInput<std:string>("node");
     std::vector<std::string> node_names = node->get_node_names();
 
     auto it = std::find(node_names.begin(), node_names.end(), target_node_name);

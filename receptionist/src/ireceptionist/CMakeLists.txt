@@ -5,7 +5,7 @@ project(ireceptionist LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(ireceptionist main.cpp Talk.cpp Ask.cpp MoveTo.cpp Remember.cpp See.cpp CheckNodes.cpp)
+add_executable(ireceptionist main.cpp Talk.cpp Ask.cpp MoveTo.cpp Remember.cpp See.cpp CheckNode.cpp)
 
 find_package(ament_cmake QUIET)
 find_package(behaviortree_cpp REQUIRED)

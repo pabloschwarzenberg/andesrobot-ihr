@@ -6,14 +6,19 @@
 
 using namespace BT;
 
-class CheckNodes : public ConditionNode
+class CheckNode : public ConditionNode
 {
     public:
-        CheckNodes(const std::string& name, const NodeConfiguration& config)
+        CheckNode(const std::string& name, const NodeConfiguration& config)
             : ConditionNode(name, config)
         {
             //rclcpp::init(0, nullptr);
         };
+
+        static PortsList providedPorts()
+        {
+            return { InputPort<std::string>("node") };
+        }
 
         NodeStatus tick() override;
 };
