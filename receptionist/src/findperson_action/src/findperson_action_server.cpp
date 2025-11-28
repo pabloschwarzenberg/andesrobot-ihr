@@ -130,8 +130,16 @@ namespace vision_actions
 
       if (rclcpp::ok())
       {
-          goal_handle->succeed(result);
-          RCLCPP_INFO(this->get_logger(), "Goal succeeded");
+          if(result.found!=goal_handle->get_goal()->number)
+          {
+            goal_handle->abort(result);
+            RCLCPP_INFO(this->get_logger(), "Goal failed");
+          }
+          else
+          {
+            goal_handle->succeed(result);
+            RCLCPP_INFO(this->get_logger(), "Goal succeeded");
+          }
       }
     }
   };
