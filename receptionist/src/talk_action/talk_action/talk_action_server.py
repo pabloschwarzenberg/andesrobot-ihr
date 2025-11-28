@@ -1,8 +1,6 @@
 import rclpy
 from rclpy.action import ActionServer
 from rclpy.node import Node
-from espeak_ng import espeak_AUDIO_OUTPUT
-import espeak_ng
 from subprocess import call
 
 from nlp_interfaces.action import Talk
@@ -19,9 +17,6 @@ class TalkActionServer(Node):
 
     def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
-#        espeak_ng.initialize(output=espeak_AUDIO_OUTPUT.AUDIO_OUTPUT_SYNCH_PLAYBACK)
-#        espeak_ng.set_voice_by_properties(name="mb-us2")
-#        espeak_ng.synth(goal_handle.request.speech)
         call(["espeak-ng","-v","mb-us2","-s","128",goal_handle.request.speech]) 
         goal_handle.succeed()
         result = Talk.Result()

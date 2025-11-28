@@ -1,8 +1,6 @@
 import rclpy
 from rclpy.action import ActionServer
 from rclpy.node import Node
-from espeak_ng import espeak_AUDIO_OUTPUT
-import espeak_ng
 from subprocess import call
 import queue, sys, sounddevice as sd
 from vosk import Model, KaldiRecognizer
