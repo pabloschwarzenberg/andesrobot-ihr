@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <root main_tree_to_execute="BehaviorTree" BTCPP_format="4">
     <!-- ////////// -->
-    <BehaviorTree ID="BehaviorTree">
+    <BehaviorTree ID="MainTree">
         <Sequence>
             <SetBlackboard output_key="DoorLocation" value="0;0" />
 	        <CheckNode node="/findperson_action_server"/>
@@ -20,9 +20,30 @@
             <Action ID="Talk" speech="{offering}"/>
             <Script code=" offering='This is your seat. Please take a seat, '+person1+'. I have stored your name.' " />
             <Action ID="Talk" speech="{offering}"/>
-            <Action ID="Remember" object="Person"/>
+
+	        <Action ID="MoveTo" location="{DoorLocation}"/>
+	        <RetryUntilSuccessful num_attempts="-1">
+		        <Action ID="See" object="Person" cardinality="1"/>
+	        </RetryUntilSuccessful>
+            <Action ID="Ask" speech="Hello. What is your name?" response="{person2}"/>
+            <Script code=" greeting:='Nice to meet you, '+person2+'. I will also remember your name. Please follow me to your seat.' " />
+            <Action ID="Talk" speech="{greeting}"/>
+            <Action ID="Ask" speech="What is your favorite drink?" response="{drink2}"/>
+            <Script code=" offering:='Perfect, I will remember that you like '+drink2+'.' " />
+            <Action ID="Talk" speech="{offering}"/>
+            <Script code=" offering='This is your seat. Please sit down, '+person2+'. I have stored your name.' " />
+            <Action ID="Talk" speech="{offering}"/>
+
+            <Script code=" introduction:=person2+', this is '+person1. " />
+            <Action ID="Talk" speech="{introduction}"/>
+            <Script code=" introduction=person1+', this is '+person2. It is a pleasure to assist both of you." />
+            <Action ID="Talk" speech="{introduction}"/>
+
+            <Action ID="Talk" speech="The interaction task is complete. Do you need anything else?."/>
+
         </Sequence>
     </BehaviorTree>
+
     <!-- ////////// -->
     <TreeNodesModel>
         <Action ID="Ask">
