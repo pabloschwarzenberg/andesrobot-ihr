@@ -4,10 +4,11 @@
     <BehaviorTree ID="BehaviorTree">
         <Sequence>
             <SetBlackboard output_key="DoorLocation" value="0;0" />
-	    <Action ID="MoveTo" location="{DoorLocation}"/>
-	    <RetryUntilSuccessful num_attempts="-1">
-		    <Action ID="See" object="Person" cardinality="1"/>
-	    </RetryUntilSuccessful>
+            <CheckNodes />
+	        <Action ID="MoveTo" location="{DoorLocation}"/>
+	        <RetryUntilSuccessful num_attempts="-1">
+		        <Action ID="See" object="Person" cardinality="1"/>
+	        </RetryUntilSuccessful>
             <Action ID="Talk" speech="Hello"/>
             <Action ID="Ask" speech="What is your name?" response="{person1}"/>
             <Script code=" greeting:='Hello, '+person1+'! Welcome.' " />

@@ -4,6 +4,7 @@
 #include "MoveTo.hpp"
 #include "Remember.hpp"
 #include "See.hpp"
+#include "CheckNodes.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp/executors.hpp"
 
@@ -36,6 +37,7 @@ int main(int argc, char** argv)
   factory.registerNodeType<See>("See",params3);
 
   factory.registerNodeType<Remember>("Remember");
+  factory.registerNodeType<CheckNodes>("CheckNodes");
 
    auto tree = factory.createTreeFromFile("./receptionist.xml");
 
