@@ -36,7 +36,7 @@
 
             <Script code=" introduction:=person2+', this is '+person1 " />
             <Action ID="Talk" speech="{introduction}"/>
-            <Script code=" introduction=person1+', this is '+person2. It is a pleasure to assist both of you." />
+            <Script code=" introduction=person1+', this is '+person2+' It is a pleasure to assist both of you." />
             <Action ID="Talk" speech="{introduction}"/>
 
             <Action ID="Talk" speech="The interaction task is complete. Do you need anything else?."/>
