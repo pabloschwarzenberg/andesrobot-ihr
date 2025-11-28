@@ -18,6 +18,7 @@ NodeStatus CheckNode::tick()
     }
     else
     {
+        std::cout << "Node unavailable: " << target_node_name.value() << std::endl;
         return NodeStatus::FAILURE;
     }
 }
