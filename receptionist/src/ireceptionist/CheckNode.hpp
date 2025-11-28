@@ -17,7 +17,7 @@ class CheckNode : public ConditionNode
 
         static PortsList providedPorts()
         {
-            return { InputPort<std::string>("node") };
+            return { InputPort<std::string>("name") };
         }
 
         NodeStatus tick() override;
