@@ -3,10 +3,10 @@
 NodeStatus CheckNode::tick()
 {
     auto node = rclcpp::Node::make_shared("node_checker");
-    Expected<std::string> target_node_name = getInput<std::string>("name");
+    Expected<std::string> target_node_name = getInput<std::string>("node");
     if(!target_node_name)
     {
-        throw RuntimeError("missing required input [name]: ", 
+        throw RuntimeError("missing required input [node]: ", 
                                 target_node_name.error() );
     }
     std::vector<std::string> node_names = node->get_node_names();
