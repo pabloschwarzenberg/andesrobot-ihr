@@ -3,7 +3,6 @@
 NodeStatus Remember::tick()
 {
   Expected<std::string> msg = getInput<std::string>("object");
-  // Check if optional is valid. If not, throw its error
   if (!msg)
   {
     throw BT::RuntimeError("missing required input [object]: ", 
