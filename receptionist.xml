@@ -34,7 +34,7 @@
             <Script code=" offering='This is your seat. Please sit down, '+person2+'. I have stored your name.' " />
             <Action ID="Talk" speech="{offering}"/>
 
-            <Script code=" introduction:=person2+', this is '+person1. " />
+            <Script code=" introduction:=person2+', this is '+person1 " />
             <Action ID="Talk" speech="{introduction}"/>
             <Script code=" introduction=person1+', this is '+person2. It is a pleasure to assist both of you." />
             <Action ID="Talk" speech="{introduction}"/>
