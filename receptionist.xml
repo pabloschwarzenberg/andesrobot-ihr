@@ -15,9 +15,11 @@
             <Script code=" greeting:='Nice to meet you, '+person1+'. I will remember your name. You may seat here,
             please follow me.' " />
             <Action ID="Talk" speech="{greeting}"/>
+<!--
             <Action ID="Ask" speech="What is your favorite drink?" response="{drink1}"/>
             <Script code=" offering:='Perfect, I will remember that you like '+drink1+'.' " />
             <Action ID="Talk" speech="{offering}"/>
+-->
             <Script code=" offering='This is your seat. Please take a seat, '+person1+'. I have stored your name.' " />
             <Action ID="Talk" speech="{offering}"/>
 
@@ -28,9 +30,12 @@
             <Action ID="Ask" speech="Hello. What is your name?" response="{person2}"/>
             <Script code=" greeting:='Nice to meet you, '+person2+'. I will also remember your name. Please follow me to your seat.' " />
             <Action ID="Talk" speech="{greeting}"/>
+<!--
             <Action ID="Ask" speech="What is your favorite drink?" response="{drink2}"/>
             <Script code=" offering:='Perfect, I will remember that you like '+drink2+'.' " />
             <Action ID="Talk" speech="{offering}"/>
+-->
+
             <Script code=" offering='This is your seat. Please sit down, '+person2+'. I have stored your name.' " />
             <Action ID="Talk" speech="{offering}"/>
 
