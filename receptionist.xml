@@ -4,7 +4,7 @@
     <BehaviorTree ID="BehaviorTree">
         <Sequence>
             <SetBlackboard output_key="DoorLocation" value="0;0" />
-            <CheckNode node="findperson_action"/>
+	    <CheckNode node="/findperson_action_server"/>
 	        <Action ID="MoveTo" location="{DoorLocation}"/>
 	        <RetryUntilSuccessful num_attempts="-1">
 		        <Action ID="See" object="Person" cardinality="1"/>
