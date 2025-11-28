@@ -4,14 +4,16 @@
 #include <vector>
 #include <algorithm>
 
-class CheckNodes : public BT::ConditionNode
+using namespace BT;
+
+class CheckNodes : public ConditionNode
 {
     public:
-        CheckNodes(const std::string& name, const BT::NodeConfiguration& config)
-            : BT::CheckNodes(name, config)
+        CheckNodes(const std::string& name, const NodeConfiguration& config)
+            : ConditionNode(name, config)
         {
             //rclcpp::init(0, nullptr);
         };
 
-        BT::NodeStatus tick() override;
+        NodeStatus tick() override;
 };

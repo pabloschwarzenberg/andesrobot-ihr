@@ -1,6 +1,6 @@
 #include "CheckNodes.hpp"
 
-BT::NodeStatus CheckNodes::tick()
+NodeStatus CheckNodes::tick()
 {
     auto node = rclcpp::Node::make_shared("node_checker");
     std::string target_node_name = "findperson_action";
@@ -10,10 +10,10 @@ BT::NodeStatus CheckNodes::tick()
     auto it = std::find(node_names.begin(), node_names.end(), target_node_name);
     if (it != node_names.end())
     {
-        return BT::NodeStatus::SUCCESS;
+        return NodeStatus::SUCCESS;
     }
     else
     {
-        return BT::NodeStatus::FAILURE;
+        return NodeStatus::FAILURE;
     }
 }
