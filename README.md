@@ -26,7 +26,7 @@ Luego en la carpeta general
 
 colcon build
 
-Luego verificar que esté configurada la cámara, 
+Luego verificar que esté configurada la cámara, v4l2-ctl --list-devices
 
 Luego configurar la entrada de audio y la salida de audio, verificar ID de dispositivos con (ejemplo de configuración en setup_audio.sh):
 
