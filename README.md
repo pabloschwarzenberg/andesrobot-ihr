@@ -26,17 +26,13 @@ Luego en la carpeta general
 
 colcon build
 
-Luego verificar que estén configuradas la cámara, la entrada de audio y la salida de audio
+Luego verificar que esté configurada la cámara, 
 
-verificar ID de dispositivos con:
+Luego configurar la entrada de audio y la salida de audio, verificar ID de dispositivos con (ejemplo de configuración en setup_audio.sh):
 
 pacmd list sinks
 
 pacmd list sources
-
-ejemplo de configuración en 
-
-setup_audio.sh
 
 Luego hay que levantar los servicios (cada uno en un terminal),
 
