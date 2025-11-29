@@ -9,7 +9,9 @@ Se requiere la versión de OpenCV 4.8.0
 Clonar el siguiente repositorio en receptionist/src
 
 git clone https://github.com/BehaviorTree/BehaviorTree.ROS2.git
+
 cd BehaviorTree.ROS2
+
 colcon build
 
 cd nlp_interfaces
