@@ -17,7 +17,7 @@ class TalkActionServer(Node):
 
     def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
-        call(["espeak-ng","-v","mb-us2","-s","128",goal_handle.request.speech]) 
+        call(["espeak-ng","-v","mb-us1","-s","160",goal_handle.request.speech]) 
         goal_handle.succeed()
         result = Talk.Result()
         return result

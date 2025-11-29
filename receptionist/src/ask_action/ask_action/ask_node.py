@@ -27,7 +27,7 @@ class AskActionServer(Node):
         
     def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
-        call(["espeak-ng","-v","mb-us2","-s","128",goal_handle.request.speech])
+        call(["espeak-ng","-v","mb-us1","-s","160",goal_handle.request.speech])
 
         samplerate = int(sd.query_devices(None, "input")["default_samplerate"])
         rec = KaldiRecognizer(self.model, samplerate)
