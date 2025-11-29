@@ -15,10 +15,14 @@ cd BehaviorTree.ROS2
 colcon build
 
 cd nlp_interfaces
+
 colcon build
 
 cd vision_interfaces
+
 colcon build
+
+Luego en la carpeta general
 
 colcon build
 
